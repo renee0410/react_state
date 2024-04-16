@@ -1,25 +1,34 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { createTodo, deleteTodo, Todo } from '@/@utils/redux/slice/todosSlice';
+import { RootState } from '@/@utils/redux/store/reduxStore';
 import { Plus, X } from '@phosphor-icons/react';
 
-interface Todo {
-  id: number | null;
-  text: string | null;
-}
-
 const ReduxPage = () => {
-  const [todoItems, setTodoItems] = useState<Todo[]>([]);
+  // const [todoItems, setTodoItems] = useState<Todo[]>([{ id: 1, text: 'Learn React' }]);
   const [newTodoText, setNewTodoText] = useState<string>('');
+  const dispatch = useDispatch();
+
+  const todos = useSelector((state: RootState) => state.todos);
+
+  console.log(todos);
 
   const addTodo = () => {
-    if (newTodoText) {
-      setTodoItems([...todoItems, { id: todoItems.length + 1, text: newTodoText }]);
-      setNewTodoText('');
-    }
+    dispatch(
+      createTodo({
+        id: todos.length + 1,
+        text: newTodoText,
+      }),
+    );
+    setNewTodoText('');
+
+    // setTodoItems([...todoItems, { id: todoItems.length + 1, text: newTodoText }]);
   };
 
   const removeTodo = (id: number) => {
-    const newTodoItems = todoItems.filter((todo) => todo.id !== id);
-    setTodoItems(newTodoItems);
+    dispatch(deleteTodo({ id }));
+    // const newTodoItems = todoItems.filter((todo) => todo.id !== id);
+    // setTodoItems(newTodoItems);
   };
 
   return (
@@ -46,8 +55,8 @@ const ReduxPage = () => {
         {/* Todo List */}
         <div className='mt-10 flex min-h-[120px] flex-col divide-y divide-gray-200 overflow-y-auto rounded-md border border-gray-200 p-6'>
           {/* Todo items */}
-          {todoItems.length > 0 &&
-            todoItems.map((todo) => {
+          {todos.length > 0 &&
+            todos.map((todo: Todo) => {
               return (
                 <div className='flex items-center justify-between' key={todo.id}>
                   <div className='p-4'>{todo.text}</div>
