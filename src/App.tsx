@@ -1,12 +1,9 @@
-import React from 'react';
-import { ReduxPage } from './@pages/index';
+import { useRoutes } from 'react-router-dom';
+import routes from './routes';
 
 function App() {
-  return (
-    <>
-      <ReduxPage />
-    </>
-  );
+  const router = useRoutes(routes);
+  return router;
 }
 
 export default App;
