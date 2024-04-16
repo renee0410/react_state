@@ -17,6 +17,11 @@ const ReduxPage = () => {
     }
   };
 
+  const removeTodo = (id: number) => {
+    const newTodoItems = todoItems.filter((todo) => todo.id !== id);
+    setTodoItems(newTodoItems);
+  };
+
   return (
     <>
       <div className='flex h-screen flex-col p-9'>
@@ -46,7 +51,13 @@ const ReduxPage = () => {
               return (
                 <div className='flex items-center justify-between' key={todo.id}>
                   <div className='p-4'>{todo.text}</div>
-                  <button className='size-6 rounded-md border border-gray-200'>
+                  <button
+                    className='size-6 rounded-md border border-gray-200'
+                    onClick={() => {
+                      if (todo.id !== null) {
+                        removeTodo(todo.id);
+                      }
+                    }}>
                     <X size={16} className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
                   </button>
                 </div>
