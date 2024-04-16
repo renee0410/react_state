@@ -1,7 +1,12 @@
 import React from 'react';
+import { ReduxPage } from './@pages/index';
 
 function App() {
-  return <div className='flex text-red-600'>Hello</div>;
+  return (
+    <>
+      <ReduxPage />
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	@apply relative;
+}
+
+body {
+	@apply bg-white font-normal leading-normal text-slate-700;
+}
