@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "plugin:tailwindcss/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs", "vite.config.ts"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react-refresh", "react", "react-hooks", "@typescript-eslint", "tailwindcss", "prettier"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "camelcase": "off",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error",
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/triple-slash-reference": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "no-irregular-whitespace":"off",
+    "tailwindcss/classnames-order": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  // "overrides": [
+  //   {
+  //     "files": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  //     "rules": {
+  //       "import/first": "off"
+  //     }
+  //   }
+  // ]
+}
