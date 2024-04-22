@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
 import path from 'path';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig((config) => {
   // Load env file based on `mode` in the current working directory.
@@ -16,7 +17,7 @@ export default defineConfig((config) => {
         scss: {},
       },
     },
-    plugins: [react()],
+    plugins: [react(),tsconfigPaths()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),

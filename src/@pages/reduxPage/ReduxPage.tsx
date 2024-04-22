@@ -9,7 +9,7 @@ const ReduxPage = () => {
   const [newTodoText, setNewTodoText] = useState<string>('');
   const dispatch = useDispatch();
 
-  const todos = useSelector((state: RootState) => state.todos);
+  const todos: Todo[] = useSelector((state: RootState) => state.todos);
 
   console.log(todos);
 

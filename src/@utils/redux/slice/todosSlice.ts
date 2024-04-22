@@ -1,20 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Todo {
-  id: number | null;
-  text: string | null;
+  id: number;
+  text?: string;
 }
 
 export const todosSlice = createSlice({
   name: 'todos',
-  initialState: [{ id: 1, text: 'Learn Redux' }],
+  initialState: [{ id: 1, text: 'Learn React' }],
 
   // 狀態管理器（方法）
   reducers: {
     createTodo(state: Todo[], action: PayloadAction<Todo>) {
       state.push(action.payload);
     },
-    deleteTodo: (state: Todo[], action: PayloadAction<Todo>) => {
+    deleteTodo: (state, action: PayloadAction<Todo>) => {
       const index = state.findIndex((todo) => todo.id === action.payload.id);
       state.splice(index, 1);
     },

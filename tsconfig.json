@@ -3,7 +3,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+        "@/*": ["src/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -14,10 +14,10 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
+    "moduleResolution": "node",
     "strict": true
   },
   /* Bundler mode */
-  "moduleResolution": "bundler",
   "allowImportingTsExtensions": true,
   "resolveJsonModule": true,
   "isolatedModules": true,
